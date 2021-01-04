@@ -6,17 +6,11 @@ body{
     overflow: auto;
 }
 
-@font-face {
-    font-family: "arial";
-    src: url("../src/font/arial.ttf");
-}
-
-
 
 /*
  --
  ---- Header :
- -- 
+ --
  */
 
 .header {
@@ -410,7 +404,7 @@ input[type=number]{
     color: #232323;
 }
 
-/* Personnalisation des noms de modules dans les output*/
+/* Personnalisation des noms de modules dans le coté output*/
 .module-name{
     background-color: #232323;
     padding-top: 13.9px;
