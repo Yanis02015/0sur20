@@ -8,16 +8,7 @@ body{
 
 @font-face {
     font-family: "arial";
-    src: url("/src/font/arial.ttf");
-}
-@font-face {
-    font-family: "arial-bold";
-    src: url("/src/font/arialbd.ttf");
-}
-
-@font-face {
-    font-family: "BebasNeue";
-    src: url("/src/font/BebasNeue\ Book.otf");
+    src: url("../src/font/arial.ttf");
 }
 
 
@@ -118,14 +109,16 @@ body{
 /* Le titre des lien de la liste de navigation latéral */
 #title-nav{
     font-size: 11px;
-    font-family: "arial-bold";
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
     height: 35px;
 }
 
 /* Mettre les elements de la av page en CAPITALE + taille et police d'ecriture*/
 .texte-nav {
     font-size: 10px;
-    font-family: "arial";
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
     text-transform: uppercase; 
 }
 
@@ -177,8 +170,8 @@ body{
 /*
  --
  ---- Main page :
- -- 
- */
+ --
+*/
 
 main{
     padding-top: 70px;
@@ -190,16 +183,17 @@ main{
 
 /* Police et taille du text de la page */
 .title{
-    font-family: "BebasNeue";
-    font-size: 40px;
-    margin-left: 15px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 30px;
+    margin-left: 20px;
     color: white;
     margin-top: auto;
 }
 
 /* Taille des deux div/3 de main */
 .input, .output {
-    width: 1000vw;
+    width: 100vw;
     height: calc(100vh - 100px);
 }
 
@@ -251,14 +245,20 @@ form{
     margin-bottom: auto;
     margin-top: auto;
     text-transform: uppercase;
-    font-family: "arial-bold";
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
 }
 
 /* Supression des flèches de focus des input */
+/* Pour Chrome, Safari, Edge et Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
     -webkit-appearance: none;
     margin: 0;
+}
+/* Pour Firefox */
+input[type=number]{
+    -moz-appearance: textfield;
 }
 
 /* supression des border des input lord du focus */
@@ -315,7 +315,8 @@ input::-webkit-inner-spin-button{
     width: 82px;
     height: 40px;
     font-size: 25px;
-    font-family: "arial-bold";
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
 }
 
 /* Personalisation du button Go au hover */
@@ -359,7 +360,8 @@ input::-webkit-inner-spin-button{
 
 /* Le texte "MOYENNE GENERALE" et de la moyenne en chiffre 00.00*/
 .note .moyenne{
-    font-family: "arial-bold";
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
     font-size: 30px;
     fill: white;
 }
@@ -378,7 +380,8 @@ input::-webkit-inner-spin-button{
     width: 160px;
     height: 30px;
     font-size: 13px;
-    font-family: "arial-bold";
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
 }
 
 /* Positionner le div du button sauvgarder */
@@ -390,27 +393,28 @@ input::-webkit-inner-spin-button{
 
 /* Personnalisation des notes de module et les noms des modules */
 .output .note-module, .module-name{
-    font-size: 12px;
+    font-size: 15px;
     margin-bottom: auto;
     margin-top: auto;
     text-transform: uppercase;
-    font-family: "arial-bold";
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
 }
 
 /* Personnalisation des notes de module */
 .output .note-module{
     background-color: #ffffff;
-    padding-top: 9.6px;
-    padding-bottom: 9.6px;
+    width: 80px;
+    padding-top: 13.9px;
+    padding-bottom: 13.9px;
     color: #232323;
-    width: 65px;
 }
 
 /* Personnalisation des noms de modules dans les output*/
 .module-name{
     background-color: #232323;
-    padding-top: 9.6px;
-    padding-bottom: 9.6px;
+    padding-top: 13.9px;
+    padding-bottom: 13.9px;
     color: #ffffff;
-    width: 65px;
+    width: 80px;
 }

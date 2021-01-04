@@ -15,5 +15,5 @@ function openNav() {
 
   function sauvgarder() {
     var a = document.getElementById("number");
-    a.textContent = "0.01"
+    a.textContent = "00.01"
 }
