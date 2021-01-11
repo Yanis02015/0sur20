@@ -9,15 +9,15 @@
     <title>Calculateur</title>
 </head>
 <body>
-    <div class="header">
-        <img src="src/Menu@2x.png" alt="icon du menu" id="menu-button" class="icon-menu" onclick="openNav()">
-        <a href=""><img src="src/Logo@2x.png" alt="Logo du site" id="logo-header" class="icon-menu"></a>
-        <a href=""><img src="src/User@2x.png" alt="icon du user" class="icon-menu"></a>
-    </div>
+    <header class="header">
+        <p id="menu-button" class="icon-menu"><img src="src/Menu@2x.png" alt="icon du menu" onclick="openNav()"></p>
+        <p><a href="" id="logo-header" class="icon-menu"><img src="src/Logo@2x.png" alt="Logo du site"></a></p>
+        <p><a href="" id="logo-user" class="icon-menu"><img src="src/User@2x.png" alt="icon du user"></a></p>
+    </header>
     
     <nav id="nav">
         <ul>
-            <li id="title-nav"><a href="#">School Average Calculator</a></li>
+            <li class="texte-nav" id="title-nav"><a href="#"><strong>School Average Calculator</strong></a></li>
             <li class="texte-nav" id="soutenir"><a href="#">Soutenir</a></li>
             <li class="texte-nav" id="auteur"><a href="#">Auteurs</a></li>
             <li class="texte-nav" id="github"><a href="#">GitHub</a></li>
@@ -25,7 +25,6 @@
         </ul>
             
         <div id="icons-reseaux">
-
             <a href="#">
                 <svg version="1.1" class="icon-facebook" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1080 1080" enable-background="new 0 0 1080 1080" xml:space="preserve">
                     <path d="M625,1080V587.3h168.8l27-189H625V276.8c0-54,20.3-94.5,94.5-94.5h101.3V6.8c-20.2,0-81-6.8-148.5-6.8C544-6.8,436,87.8,429.3,216c0,13.5,0,27,0,33.8v141.8H260.5v189h168.8V1080H625z"/>
@@ -33,7 +32,7 @@
             </a>
 
             <a href="#">
-                <svg version="1.1" class="icon-twitter" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <svg version="1.1" class="icon-twitter" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
                     <path d="M5.1,15c5.1,0,9.3-4.1,9.3-9.2c0-0.1,0-0.1,0-0.2V5.2c0.6-0.5,1.2-1,1.6-1.7c-0.6,0.3-1.2,0.4-1.9,0.5
                         c0.7-0.4,1.2-1,1.4-1.8c-0.6,0.4-1.3,0.6-2,0.8C12.9,2.4,12,2,11.1,2C9.3,2,7.8,3.5,7.8,5.3c0,0.2,0,0.5,0.1,0.7
                         C5.3,5.9,2.8,4.6,1.2,2.5C0.9,3,0.7,3.6,0.7,4.2c0,1.1,0.5,2.1,1.4,2.8C1.6,7,1.1,6.8,0.6,6.5l0,0c0,1.6,1.1,2.9,2.7,3.2
@@ -43,7 +42,7 @@
             </a>
 
             <a href="#">
-                <svg version="1.1" class="icon-instagram" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <svg version="1.1" class="icon-instagram" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
                     <path d="M8,1.4c1.1,0,2.1,0,3.2,0.1c0.5,0,1,0.1,1.5,0.3c0.7,0.3,1.2,0.8,1.5,1.5c0.2,0.5,0.3,1,0.3,1.5c0,0.8,0.1,1.1,0.1,3.2
                         c0,1.1,0,2.1-0.1,3.2c0,0.5-0.1,1-0.3,1.5c-0.3,0.7-0.8,1.2-1.5,1.5c-0.5,0.2-1,0.3-1.5,0.3c-0.8,0-1.1,0.1-3.2,0.1
                         c-1.1,0-2.1,0-3.2-0.1c-0.5,0-1-0.1-1.5-0.3c-0.7-0.3-1.2-0.8-1.5-1.5c-0.2-0.5-0.3-1-0.3-1.5c0-0.8-0.1-1.1-0.1-3.2
@@ -62,137 +61,131 @@
     </nav>
 
     <main>
-        <div class="input">
+        <section class="input">
             <form>
-                <p class="title">renseigner vos notes</p>
-            <div class="ack">
-                <div class="line">
-                    <div  class="emd-name">
-                        <span id="bdd">bdd</span>
-                    </div>
-                    <div>
-                            <input type="number" placeholder="EMD" id="emd-bdd">
-                    </div>
-                    <div>
-                        <input type="number" placeholder="TD BDD" id="td-bdd">
-                    </div>
-                    <div class="tp-name">
-                        <input type="number" placeholder="TP BDD" id="tp-bdd">
-                    </div>
-                </div>
+                <div class="pas-go">
+                    <h1 class="input-title">Renseigner vos notes</h1>
+                    <div class="input-bottom">
+                        <div class="line">
+                            <div  class="emd-name">
+                                <div id="test">
+                                    <p id="bdd">bdd</p>
+                                </div>
+                            </div><div>
+                                <input type="number" placeholder="BDD" id="emd-bdd">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TD BDD" id="td-bdd">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TP BDD" id="tp-bdd">
+                            </div>
+                        </div>
 
-                <div class="line">
-                    <div  class="emd-name">
-                        <span id="daweb">daweb</span>
-                    </div>
-                    <div>
-                            <input type="number" placeholder="EMD" id="emd-daweb">
-                    </div>
-                    <div>
-                        <input type="number" placeholder="TD DAWEB" id="td-daweb">
-                    </div>
-                    <div class="tp-name">
-                        <input type="number" placeholder="TP DAWEB" id="tp-daweb">
-                    </div>
-                </div>
+                        <div class="line">
+                            <div  class="emd-name">
+                                <div><p id="daweb">daweb</p></div>
+                            </div><div>
+                                    <input type="number" placeholder="EMD" id="emd-daweb">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TD DAWEB" id="td-daweb">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TP DAWEB" id="tp-daweb">
+                            </div>
+                        </div>
 
-                <div class="line">
-                    <div  class="emd-name">
-                        <span id="rx">rx</span>
-                    </div>
-                    <div>
-                            <input type="number" placeholder="RX" id="emd-rx">
-                    </div>
-                    <div>
-                        <input type="number" placeholder="TD RX" id="td-rx">
-                    </div>
-                    <div class="tp-name">
-                        <input type="number" placeholder="TP RX" id="tp-rx">
-                    </div>
-                </div>
+                        <div class="line">
+                            <div  class="emd-name">
+                                <div><p id="rx">rx</p></div>
+                            </div><div>
+                                    <input type="number" placeholder="RX" id="emd-rx">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TD RX" id="td-rx">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TP RX" id="tp-rx">
+                            </div>
+                        </div>
 
-                <div class="line">
-                    <div  class="emd-name">
-                        <span id="se">se</span>
-                    </div>
-                    <div>
-                            <input type="number" placeholder="EMD" id="emd-se">
-                    </div>
-                    <div>
-                        <input type="number" placeholder="TD SE" id="td-se">
-                    </div>
-                    <div class="tp-name">
-                        <input type="number" placeholder="TP SE" id="tp-se">
-                    </div>
-                </div>
+                        <div class="line">
+                            <div  class="emd-name">
+                                <div><p id="se">se</p></div>
+                            </div><div>
+                                    <input type="number" placeholder="EMD" id="emd-se">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TD SE" id="td-se">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TP SE" id="tp-se">
+                            </div>
+                        </div>
 
-                <div class="line">
-                    <div  class="emd-name">
-                        <span id="poo">poo</span>
-                    </div>
-                    <div>
-                            <input type="number" placeholder="EMD" id="emd-poo">
-                    </div>
-                    <div>
-                        <input type="number" placeholder="TD POO" id="td-poo">
-                    </div>
-                    <div class="tp-name">
-                        <input type="number" placeholder="TP POO" id="tp-poo">
-                    </div>
-                </div>
+                        <div class="line">
+                            <div  class="emd-name">
+                                <div><p id="poo">poo</p></div>
+                            </div><div>
+                                    <input type="number" placeholder="EMD" id="emd-poo">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TD POO" id="td-poo">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TP POO" id="tp-poo">
+                            </div>
+                        </div>
 
-                <div class="line">
-                    <div  class="emd-name">
-                        <span id="thl">thl</span>
-                    </div>
-                    <div>
-                            <input type="number" placeholder="EMD" id="emd-thl">
-                    </div>
-                    <div>
-                        <input type="number" placeholder="TD THL" id="td-thl">
-                    </div>
-                    <div class="tp-name">
-                        <input type="number" placeholder="TP THL" id="tp-thl">
-                    </div>
-                </div>
+                        <div class="line">
+                            <div  class="emd-name">
+                                <div><p id="thl">thl</p></div>
+                            </div><div>
+                                    <input type="number" placeholder="EMD" id="emd-thl">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TD THL" id="td-thl">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TP THL" id="tp-thl">
+                            </div>
+                        </div>
 
-                <div class="line">
-                    <div  class="emd-name">
-                        <span id="en">en</span>
-                    </div>
-                    <div>
-                            <input type="number" placeholder="EMD" id="emd-en">
-                    </div>
-                    <div>
-                        <input type="number" placeholder="TD EN" id="td-en">
-                    </div>
-                    <div class="tp-name">
-                        <input type="number" placeholder="TP EN" id="tp-en">
+                        <div class="line">
+                            <div  class="emd-name">
+                                <div><p id="en">en</p></div>
+                            </div><div>
+                                    <input type="number" placeholder="EMD" id="emd-en">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TD EN" id="td-en">
+                            </div>
+                            <div>
+                                <input type="number" placeholder="TP EN" id="tp-en">
+                            </div>
+                        </div>
+                        <div class="reset">
+                            <div><input id="reset" type="reset" value="Remettre à zéro"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="reset">
-                    <div><input id="reset" type="reset" value="Remettre à zéro"></div>
+                <div class="go">
+                    <input type="button" value="GO!">
                 </div>
-            </div>
             </form>
-        </div>
+        </section>
 
-        <div class="go">
-            <button>GO!</button>
-            
-            </div>
-        </div>
-
-        <div class="output">
+        <section class="output">
             <div class="note">
                 <svg xmlns="http://www.w3.org/2000/svg" width="239" height="341.667" viewBox="0 0 239 341.667">
-                    <g id="Groupe_94" data-name="Groupe 94" transform="translate(-911 -121)">
-                      <path id="Tracé_239" data-name="Tracé 239" d="M119.5,0A119.5,119.5,0,0,1,239,119.5H0A119.5,119.5,0,0,1,119.5,0Z" transform="translate(911 121)" fill="#232323"/>
-                      <path id="Tracé_240" data-name="Tracé 240" d="M239,119.5a119.5,119.5,0,0,1-239,0Z" transform="translate(911 121)" fill="#fff"/>
+                    <g data-name="Groupe 94" transform="translate(-911 -121)">
+                      <path data-name="Tracé 239" d="M119.5,0A119.5,119.5,0,0,1,239,119.5H0A119.5,119.5,0,0,1,119.5,0Z" transform="translate(911 121)" fill="#232323"/>
+                      <path data-name="Tracé 240" d="M239,119.5a119.5,119.5,0,0,1-239,0Z" transform="translate(911 121)" fill="#fff"/>
                     </g>
                     <g class="text">
-                        <text class="moyenne" x="44" y="65" >MOYENNE</text>
-                        <text class="moyenne" x="38" y="100" >GENERALE</text>
+                        <text class="moyenne" x="46" y="65" >MOYENNE</text>
+                        <text class="moyenne" x="44" y="100" >GENerale</text>
                         <text id="number" class="moyenne" x="50" y="190" >00.00</text>
                     </g>
                 </svg>
@@ -206,68 +199,61 @@
             <div class="module-result">
                 <div class="line">
                     <div class="module-name">
-                        <span>BDD</span>
-                    </div>
-                    <div class="note-module" id="bdd">
-                        <span>0.02</span>
-                    </div>
-                </div>
-
-                <div class="line">
-                    <div class="module-name">
-                        <span>BDD</span>
-                    </div>
-                    <div class="note-module" id="bdd">
-                        <span>0.02</span>
+                        <div><p>bdd</p></div>
+                    </div><div class="note-module" id="bdd">
+                        <div><p>0.02</p></div>
                     </div>
                 </div>
 
                 <div class="line">
                     <div class="module-name">
-                        <span>BDD</span>
-                    </div>
-                    <div class="note-module" id="bdd">
-                        <span>0.02</span>
-                    </div>
-                </div>
-
-                <div class="line">
-                    <div class="module-name">
-                        <span>BDD</span>
-                    </div>
-                    <div class="note-module" id="bdd">
-                        <span>0.02</span>
+                        <div><p>daweb</p></div>
+                    </div><div class="note-module" id="daweb">
+                        <div><p>0.02</p></div>
                     </div>
                 </div>
 
                 <div class="line">
                     <div class="module-name">
-                        <span>BDD</span>
-                    </div>
-                    <div class="note-module" id="bdd">
-                        <span>0.02</span>
-                    </div>
-                </div>
-
-                <div class="line">
-                    <div class="module-name">
-                        <span>BDD</span>
-                    </div>
-                    <div class="note-module" id="bdd">
-                        <span>0.02</span>
+                        <div><p>rx</p></div>
+                    </div><div class="note-module" id="rx">
+                        <div><p>0.02</p></div>
                     </div>
                 </div>
 
                 <div class="line">
                     <div class="module-name">
-                        <span>BDD</span>
+                        <div><p>se</p></div>
+                    </div><div class="note-module" id="se">
+                        <div><p>0.02</p></div>
                     </div>
-                    <div class="note-module" id="bdd">
-                        <span>0.02</span>
+                </div>
+
+                <div class="line">
+                    <div class="module-name">
+                        <div><p>poo</p></div>
+                    </div><div class="note-module" id="poo">
+                        <div><p>0.02</p></div>
+                    </div>
+                </div>
+
+                <div class="line">
+                    <div class="module-name">
+                        <div><p>thl</p></div>
+                    </div><div class="note-module" id="thl">
+                        <div><p>0.02</p></div>
+                    </div>
+                </div>
+
+                <div class="line">
+                    <div class="module-name">
+                        <div><p>en</p></div>
+                    </div><div class="note-module" id="en">
+                        <div><p>0.02</p></div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
     <script type="text/javascript" src="script.js"></script>
 </body>
