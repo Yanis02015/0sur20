@@ -23,7 +23,16 @@ a, p{
     text-decoration: none;
     color: var(--white);
     margin: 0px;
+    
 }
+
+.line div, .go input, .g-svg, .reset input, .sauvgarder{
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.75);
+}
+.line .emd-name{
+    box-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
+}
+
 
 
 
@@ -147,12 +156,12 @@ a, p{
 #icons-reseaux .icon-instagram{
     width: 12px;
     height: 12px;
-    padding-left: 13px;
+    margin-left: 13px;
 }
 #icons-reseaux .icon-twitter{
     width: 12px;
     height: 12px;
-    padding-left: 13px;
+    margin-left: 13px;
 }
 #icons-reseaux .icon-facebook{
     width: 12px;
@@ -199,7 +208,7 @@ input, .line p, .go input, .sauvgarder{
     margin-bottom: 20px;
 }
 
-/* Placer les div de main cote à cote + size */
+/* Placer les div de main cote à cote*/
 .input, .output {
     display: inline-block;
     vertical-align: top;
@@ -227,11 +236,11 @@ input{
 
 /* Personnalisation des notes de module */
 .note-module div{
-    background-color: #ffffff;
-    color: #000000;
+    background-color: var(--white);
+    color: var(--dark);
 }
 .note-module div p{
-    color: #000000;
+    color: var(--dark);
 }
 
 /* Aligner au centre les emd-name / module-name / .note-module */
@@ -241,10 +250,18 @@ input{
     align-items: center;
 }
 
-/* ma marge entre les "line" */
+/* La marge entre les "line" */
 .line{
-    margin-bottom: 6px;
-    margin-left: 50px;
+    margin-bottom: 18px;
+    margin-left: 40px;
+}
+
+/* La marge entre les colonne */
+.input .line div{
+    margin-right: 8px;
+}
+.input .line .emd-name, .line .emd-name div{
+    margin-right: 0px;
 }
 
 /* Supression des flèches de focus des input */
@@ -264,7 +281,7 @@ input[type=number]{
     outline-width: 0;
 }
 
-/* Personnalisation du botton reset + go */
+/* Personnalisation du botton reset */
 #reset{
     color: var(--white);
     background-color: var(--dark);
@@ -274,6 +291,12 @@ input[type=number]{
     font-size: 16px;
     margin-left: 135px;
     margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+/* les bottons reset + go + save clickable*/
+#reset, .go input, .sauvgarder{
+    cursor: pointer;
 }
 
 /* Personalisation du button Go */
@@ -366,15 +389,15 @@ input[type=number]{
  --
 */
 
-@media only screen and (max-width: 1140px) {
+@media only screen and (max-width: 1150px) {
     .output {
       position: relative;
-      margin-top: 145px;
+      margin-top: 250px;
     }
     .output .module-result{
         position: absolute;
         left: -530px;
-        top: 440px;
+        top: 420px;
         margin-left: 0px;
     }
     .module-result .line{
@@ -382,6 +405,7 @@ input[type=number]{
         vertical-align: middle;
         margin: 0px;
         margin-bottom: 50px;
+        margin-right: 8px;
     }
     .line .module-name, .line .note-module{
         display: block;
@@ -390,7 +414,7 @@ input[type=number]{
         height: 27px;
     }
     .module-result{
-        max-width: 650px;
+        max-width: 700px;
         margin-bottom: 50px;
     }
   }
@@ -417,7 +441,6 @@ input[type=number]{
     .module-result{
         display: flex;
         flex-wrap: wrap;
-        
     }
 
     .module-result .line{
@@ -439,7 +462,7 @@ input[type=number]{
   }
 
 
-  @media only screen and (max-width: 730px) {
+  @media only screen and (max-width: 735px) {
     form, .input-bottom, .pas-go, .input{
         display: flex;
         justify-content: center;
@@ -468,4 +491,53 @@ input[type=number]{
     .sauvgarder{
         top: 120px;
     }
+}
+
+@media only screen and (max-width: 400px) {
+    .input-bottom{
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .input-bottom .line{
+        display:inline-block;
+    }
+    .input-bottom .line div{
+        display:block;
+    }
+    .reset{
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+    .output .module-result{
+        margin-bottom: 30px;
+    }
+
+    .sauvgarder{
+        top : 190px
+    }
+}
+
+@media only screen and (max-width: 275px) {
+    .line div, .go input, .g-svg, .reset input, .sauvgarder{
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
+    }
+    .input-title{
+        font-size: 20px;
+    }
+    .input-bottom .line{
+        display:block;
+    }
+    .reset{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .output .module-result{
+        margin-bottom: 30px;
+    }
+
+    .sauvgarder{
+        top : 260px
+    }
+    
 }
