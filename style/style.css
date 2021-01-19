@@ -26,11 +26,8 @@ a, p{
     
 }
 
-.line div, .go input, .g-svg, .reset input, .sauvgarder{
+.line > div, .go input, .g-svg, .reset input, .sauvgarder{
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.75);
-}
-.line .emd-name{
-    box-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
 }
 
 
@@ -43,8 +40,9 @@ a, p{
  */
 
  .header {
-    /* Pour le positionnement du header */
     background-color: var(--dark);
+
+    /* Pour le positionnement du header */
     z-index: 99;
     position: fixed;
     top: 0;
@@ -152,22 +150,6 @@ a, p{
     height: 23px;
 }
 
-/* Ces 3 propriétés concernent la taille des icon réseau et leurs espacements */
-#icons-reseaux .icon-instagram{
-    width: 12px;
-    height: 12px;
-    margin-left: 13px;
-}
-#icons-reseaux .icon-twitter{
-    width: 12px;
-    height: 12px;
-    margin-left: 13px;
-}
-#icons-reseaux .icon-facebook{
-    width: 12px;
-    height: 12px;
-}
-
 /* Réglage de l'affichage des icons des réseau */
 #icons-reseaux{
     /* Gerer leur emplacement et positionnement */
@@ -181,6 +163,17 @@ a, p{
     transition: 0.3s;
 }
 
+/* Ces 3 propriétés concernent la taille des icon réseau et leurs espacements */
+#icons-reseaux .icon-instagram, .icon-twitter{
+    width: 12px;
+    height: 12px;
+    margin-left: 13px;
+}
+#icons-reseaux .icon-facebook{
+    width: 12px;
+    height: 12px;
+}
+
 
 
 /*
@@ -192,6 +185,8 @@ a, p{
 main{
     margin-top: 50px;
     width: 100vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 /* Police pour tout le main */
@@ -200,24 +195,20 @@ input, .line p, .go input, .sauvgarder{
     font-weight: 700;
 }
 
-/* Police et taille du text de la page */
+/* Police et taille du titre de la page */
 .input-title{
     font-family: 'Oswald', sans-serif;
     font-size: 30px;
-    margin-left: 25px;
-    margin-bottom: 20px;
 }
 
-/* Placer les div de main cote à cote*/
+/* TODO : Placer les div de main cote à cote*/
 .input, .output {
-    display: inline-block;
-    vertical-align: top;
+    
 }
 
 /* Disposition des ligne du coté input et output */
 .line div{
-    display: inline-block;
-    vertical-align: top;
+    
 }
 
 /* Taille et marge des elements input */
@@ -227,10 +218,14 @@ input{
 }
 
 /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
-.emd-name, .emd-name div, .module-name div, .note-module div{
+.emd-name div, .input .line > div, .module-name div, .note-module div{
     background-color: var(--dark);
     color: var(--white);
-    width: 85px;
+    width: 88px;
+    height: 46px;
+}
+.module-name, .note-module{
+    width: 88px;
     height: 46px;
 }
 
@@ -252,16 +247,12 @@ input{
 
 /* La marge entre les "line" */
 .line{
-    margin-bottom: 18px;
-    margin-left: 40px;
 }
 
 /* La marge entre les colonne */
 .input .line div{
-    margin-right: 8px;
 }
 .input .line .emd-name, .line .emd-name div{
-    margin-right: 0px;
 }
 
 /* Supression des flèches de focus des input */
@@ -289,9 +280,6 @@ input[type=number]{
     width: 179.5px;
     height: 50px;
     font-size: 16px;
-    margin-left: 135px;
-    margin-top: 20px;
-    margin-bottom: 50px;
 }
 
 /* les bottons reset + go + save clickable*/
@@ -307,9 +295,6 @@ input[type=number]{
     width: 82px;
     height: 46px;
     font-size: 26px;
-    margin-top: 15px;
-    margin-left: 80px;
-    margin-right: 90px;
 }
 
 /* changement de bordure au hover */
@@ -324,15 +309,12 @@ input[type=number]{
 
 /* Aligner le go à coté des input et avec le svg de la note et de result */
 .pas-go, .go, .note, .module-result {
-    display: inline-block;
-    vertical-align: middle;
 }
 
 /* Réglage de la forme bizarre de la moyenne */
 .note svg{
     width: 120px;
     height: 190px;
-    margin-left: 22px;
 }
 
 /* Le texte "MOYENNE GENERALE" et de la moyenne en chiffre 00.00*/
@@ -350,7 +332,6 @@ input[type=number]{
 }
 
 .sauvgarder-div{
-    text-align: center;
 }
 
 /* buttola moyenne en chiffre 00.00 sauvgarder */
@@ -374,11 +355,9 @@ input[type=number]{
 }
 
 .output{
-    margin-top: 90.4px;
 }
 
 .output .module-result{
-    margin-left: 80px;
 }
 
 
@@ -389,155 +368,3 @@ input[type=number]{
  --
 */
 
-@media only screen and (max-width: 1150px) {
-    .output {
-      position: relative;
-      margin-top: 250px;
-    }
-    .output .module-result{
-        position: absolute;
-        left: -530px;
-        top: 420px;
-        margin-left: 0px;
-    }
-    .module-result .line{
-        display: inline-block;
-        vertical-align: middle;
-        margin: 0px;
-        margin-bottom: 50px;
-        margin-right: 8px;
-    }
-    .line .module-name, .line .note-module{
-        display: block;
-    }
-    .line .module-name div, .line .note-module div{
-        height: 27px;
-    }
-    .module-result{
-        max-width: 700px;
-        margin-bottom: 50px;
-    }
-  }
-
-  @media only screen and (max-width: 850px) {
-    .input {
-        display: block;
-    }
-    .output {
-        margin-top: 30px;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
-    .output .module-result{
-        position: relative;
-        padding: 0;
-        left: 0;
-        margin: 0;
-        top: -40px;
-    }
-
-    .module-result{
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .module-result .line{
-        margin: 4px;
-        margin-right: auto;
-        text-align: center;
-    }
-    
-    .go input{
-        height: 80px;
-        padding-right: 120px;
-        padding-left: 20px;
-        background: var(--red) url(../src/Fleche.png) no-repeat 80px center;
-    }
-    .sauvgarder{
-        position: relative;
-        top: 105px;
-    }
-  }
-
-
-  @media only screen and (max-width: 735px) {
-    form, .input-bottom, .pas-go, .input{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        margin: 0;
-    }
-    #reset{
-        margin-left: 0px;
-        margin-top: 20px;
-    }
-    .line{
-        margin-left: 0px;
-    }
-    .go{
-        margin-left: 10px;
-    }
-    .module-result .line{
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .line div{
-        margin-left: 4px;
-    }
-    .sauvgarder{
-        top: 120px;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    .input-bottom{
-        display:block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .input-bottom .line{
-        display:inline-block;
-    }
-    .input-bottom .line div{
-        display:block;
-    }
-    .reset{
-        margin-left: 25%;
-        margin-right: 25%;
-    }
-    .output .module-result{
-        margin-bottom: 30px;
-    }
-
-    .sauvgarder{
-        top : 190px
-    }
-}
-
-@media only screen and (max-width: 275px) {
-    .line div, .go input, .g-svg, .reset input, .sauvgarder{
-        box-shadow: 0px 0px 0px rgba(0, 0, 0, 1);
-    }
-    .input-title{
-        font-size: 20px;
-    }
-    .input-bottom .line{
-        display:block;
-    }
-    .reset{
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .output .module-result{
-        margin-bottom: 30px;
-    }
-
-    .sauvgarder{
-        top : 260px
-    }
-    
-}

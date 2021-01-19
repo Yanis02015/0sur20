@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
             justify-content: center;
         }
 
-        div{
+        .div{
             margin: auto;
             display: flex;
             justify-content: space-between;
@@ -29,6 +29,7 @@
             font-family: Arial, Helvetica, sans-serif;
             text-transform: uppercase;
             color: white;
+            background-color: chartreuse;
         }
 
         .c2{
@@ -49,14 +50,35 @@
             margin-top: 14px;
             color: rgb(206, 206, 206);
         }
+
+        .test{
+            display: grid;
+            background-color: brown;
+            grid-template-columns: 33% 33% 33%;
+        }
+        @media only screen and (max-width: 307px) {
+            .test{
+            grid-template-columns: 100%;
+        }
+        }
     </style>
 </head>
 <body>
-    <div>
+    <div class="div">
         <p class="c1">L'index est en cours de développement !</p>
         <a class="c2" href="/calcule.html">
             Aller au Calculateur
         </a>
+        <div class="test">
+            <p>fdefe</p>
+            <p>AAAAA</p>
+            <p>DDDDD</p>
+            <p>EEEEE</p>
+            <p>fdefe</p>
+            <p>AAAAA</p>
+            <p>DDDDD</p>
+            <p>EEEEE</p>
+        </div>
     </div>
 </body>
 </html>
