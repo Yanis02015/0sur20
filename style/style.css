@@ -199,7 +199,7 @@ input, .line p, .go input, .sauvgarder{
 .input-title{
     font-family: 'Oswald', sans-serif;
     font-size: 30px;
-    margin-left: 10px;
+    text-align: center;
 }
 
 /* Disposition des ligne du coté input et output */
@@ -442,7 +442,6 @@ input[type=number]{
 }
 
 @media only screen and (max-width: 650px) {
-    
     .go input{
         margin-left: 45px;
         margin-right: 40px;
@@ -454,22 +453,35 @@ input[type=number]{
     .input form{
         flex-direction: column;
     }
+    .input-bottom{
+        margin-left: 5px;
+    }
+    /* Taille des elements input et non pas la classe .input */
+    .input .pas-go input{
+        width: 62.1px;
+    }
+
+    /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
+    .emd-name div, .input .line > div, .module-name div, .note-module div{
+        width: 70px;
+        font-size: 13px;
+    }
+    .module-name div, .note-module div{
+        height: 34px;
+    }
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 316px) {
     .input .line{
         display: grid;
-        grid-template-columns: 80px 90px;
+        grid-template-columns: 80px;
         grid-template-rows: 1fr 1fr 1fr;
     }
     .input .line > div{
-        grid-column: 2;
+        grid-column: 1;
     }
     .input .line .emd-name{
         grid-column: 1;
-    }
-    .input form .input-bottom{
-        margin-left: 0;
     }
     .input-title{
         margin-left: 10px;
@@ -481,5 +493,9 @@ input[type=number]{
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
+    }
+    .module-name div, .note-module div{
+        height: 27px;
+        width: 62px;
     }
 }
