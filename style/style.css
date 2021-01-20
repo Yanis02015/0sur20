@@ -465,7 +465,7 @@ input[type=number]{
 
     /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
     .emd-name> div, .input .line > div, .module-name div, .note-module div{
-        width: 77px;
+        width: 75px;
         font-size: 13px;
     }
 }
