@@ -458,16 +458,13 @@ input[type=number]{
     }
     /* Taille des elements input et non pas la classe .input */
     .input .pas-go input{
-        width: 62.1px;
+        width: 70px;
     }
 
     /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
     .emd-name div, .input .line > div, .module-name div, .note-module div{
-        width: 70px;
+        width: 77px;
         font-size: 13px;
-    }
-    .module-name div, .note-module div{
-        height: 34px;
     }
 }
 
@@ -497,5 +494,15 @@ input[type=number]{
     .module-name div, .note-module div{
         height: 27px;
         width: 62px;
+    }
+    /* Taille des elements input et non pas la classe .input */
+    .input .pas-go input{
+        width: 62.1px;
+    }
+
+    /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
+    .emd-name div, .input .line > div, .module-name div, .note-module div{
+        width: 70px;
+        font-size: 13px;
     }
 }
