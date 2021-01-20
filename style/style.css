@@ -208,22 +208,24 @@ input, .line p, .go input, .sauvgarder{
     vertical-align: middle;
 }
 
+.input-bottom{
+    margin-left: 35px;
+}
+
 /* Taille des elements input et non pas la classe .input */
 .input .pas-go input{
     width: 80px;
     height: 40px;
 }
 
-.input-bottom{
-    margin-left: 35px;
-}
-
 /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
-.emd-name div, .input .line > div, .module-name div, .note-module div{
-    background-color: var(--dark);
-    color: var(--white);
+.emd-name > div, .input .line > div, .module-name div, .note-module div{
     width: 88px;
     height: 46px;
+}
+.emd-name > div, .module-name div, .note-module div{
+    background-color: var(--dark);
+    color: var(--white);
 }
 
 /* Personnalisation des notes de module */
@@ -458,17 +460,17 @@ input[type=number]{
     }
     /* Taille des elements input et non pas la classe .input */
     .input .pas-go input{
-        width: 70px;
+        width: 73px;
     }
 
     /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
-    .emd-name div, .input .line > div, .module-name div, .note-module div{
-        width: 77px;
+    .emd-name> div, .input .line > div, .module-name div, .note-module div{
+        width: 80px;
         font-size: 13px;
     }
 }
 
-@media only screen and (max-width: 316px) {
+@media only screen and (max-width: 356px) {
     .input .line{
         display: grid;
         grid-template-columns: 80px;
