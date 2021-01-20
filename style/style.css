@@ -199,32 +199,29 @@ input, .line p, .go input, .sauvgarder{
 .input-title{
     font-family: 'Oswald', sans-serif;
     font-size: 30px;
-}
-
-/* TODO : Placer les div de main cote à cote*/
-.input, .output {
-    
+    margin-left: 10px;
 }
 
 /* Disposition des ligne du coté input et output */
-.line div{
-    
+.line > div{
+    display: inline-block;
+    vertical-align: middle;
 }
 
-/* Taille et marge des elements input */
-input{
+/* Taille des elements input et non pas la classe .input */
+.input .pas-go input{
     width: 80px;
     height: 40px;
+}
+
+.input-bottom{
+    margin-left: 35px;
 }
 
 /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
 .emd-name div, .input .line > div, .module-name div, .note-module div{
     background-color: var(--dark);
     color: var(--white);
-    width: 88px;
-    height: 46px;
-}
-.module-name, .note-module{
     width: 88px;
     height: 46px;
 }
@@ -247,12 +244,15 @@ input{
 
 /* La marge entre les "line" */
 .line{
+    margin-bottom: 18px;
 }
 
 /* La marge entre les colonne */
-.input .line div{
+.input .line > div {
+    margin-right: 8px;
 }
-.input .line .emd-name, .line .emd-name div{
+.input .line .emd-name{
+    margin-right: 0;
 }
 
 /* Supression des flèches de focus des input */
@@ -282,6 +282,13 @@ input[type=number]{
     font-size: 16px;
 }
 
+/* Mettre le botton reset au milieu avec un petite marge au top */
+.reset{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
 /* les bottons reset + go + save clickable*/
 #reset, .go input, .sauvgarder{
     cursor: pointer;
@@ -295,6 +302,7 @@ input[type=number]{
     width: 82px;
     height: 46px;
     font-size: 26px;
+    margin-left: 30px;
 }
 
 /* changement de bordure au hover */
@@ -307,11 +315,24 @@ input[type=number]{
     background-color: var(--hover-red);
 }
 
-/* Aligner le go à coté des input et avec le svg de la note et de result */
-.pas-go, .go, .note, .module-result {
+/* Aligner le go à coté des input et output aussi */
+.input form, .output{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-/* Réglage de la forme bizarre de la moyenne */
+/* L'alignement du svg et de sauvgarder */
+.note{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Réglage de la forme bizarre de la moyenne SVG*/
 .note svg{
     width: 120px;
     height: 190px;
@@ -331,10 +352,7 @@ input[type=number]{
     font-size: 56px;
 }
 
-.sauvgarder-div{
-}
-
-/* buttola moyenne en chiffre 00.00 sauvgarder */
+/* Personnalisation du bouton sauvgarder */
 .sauvgarder{
     color: var(--white);
     background-color: var(--dark);
@@ -355,9 +373,7 @@ input[type=number]{
 }
 
 .output{
-}
-
-.output .module-result{
+    margin-top: 46px;
 }
 
 
@@ -368,3 +384,102 @@ input[type=number]{
  --
 */
 
+@media only screen and (max-width: 1065px) {
+    main{
+        grid-template-columns: 60% 40%;
+    }
+    .output{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .module-result .line{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-right: 8px;
+    }
+    .module-result{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 884px) {
+    .output{
+        position: relative;
+    }
+    
+    .module-result{
+        position: absolute;
+        top: 600px;
+        left: -500px;
+    }
+    main{
+        grid-template-columns: 70% 30%;
+    }
+}
+
+@media only screen and (max-width: 758px) {
+    main{
+        grid-template-columns: 100%;
+    }
+    .module-result{
+        position: relative;
+        top: 0px;
+        left: 0px;
+    }
+    .go input{
+        width: 150px;
+        height: 80px;
+        font-size: 40px;
+        margin-left: 0px;
+        margin-right: 40px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    
+    .go input{
+        margin-left: 45px;
+        margin-right: 40px;
+        margin-top: 40px;
+    }
+    .reset{
+        display: none;
+    }
+    .input form{
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .input .line{
+        display: grid;
+        grid-template-columns: 80px 90px;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    .input .line > div{
+        grid-column: 2;
+    }
+    .input .line .emd-name{
+        grid-column: 1;
+    }
+    .input form .input-bottom{
+        margin-left: 0;
+    }
+    .input-title{
+        margin-left: 10px;
+    }
+    .input .input-title{
+        font-size: 20px;
+    }
+    .input form .input-bottom{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}

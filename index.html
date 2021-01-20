@@ -54,7 +54,13 @@
         .test{
             display: grid;
             background-color: brown;
-            grid-template-columns: 33% 33% 33%;
+            grid-template-columns: 50% 50%;
+        }
+        p{
+            grid-column: 2/ span 1;
+        }
+        .p1{
+            grid-column: 1;
         }
         @media only screen and (max-width: 307px) {
             .test{
@@ -70,7 +76,7 @@
             Aller au Calculateur
         </a>
         <div class="test">
-            <p>fdefe</p>
+            <p class="p1">fdefe</p>
             <p>AAAAA</p>
             <p>DDDDD</p>
             <p>EEEEE</p>
