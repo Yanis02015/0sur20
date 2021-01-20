@@ -460,12 +460,12 @@ input[type=number]{
     }
     /* Taille des elements input et non pas la classe .input */
     .input .pas-go input{
-        width: 73px;
+        width: 72px;
     }
 
     /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
     .emd-name> div, .input .line > div, .module-name div, .note-module div{
-        width: 80px;
+        width: 77px;
         font-size: 13px;
     }
 }
