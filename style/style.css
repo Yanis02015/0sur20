@@ -1,6 +1,7 @@
 :root{
     --dark : #232323;
     --light : #3A3A3A;
+    --green : #177704;
     --white : white;
     --red : #B80C0C;
     --hover-dark : #1a1919;
@@ -26,8 +27,8 @@ a, p{
     
 }
 
-.line > div, .go input, .g-svg, .reset input, .sauvgarder{
-    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.75);
+.line > div, .go input, .reset input, .sauvgarder, .note .result > div{
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.45);
 }
 
 
@@ -186,11 +187,46 @@ main{
     margin-top: 50px;
     width: 100vw;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+}
+
+/* Retouche div(add / supp) */
+.pas-go .action{
+    position: relative;
+    top: -18px;
+    margin-left: 2px;
+    margin-top: 5px;
+}
+
+/* Dispositon++ des add & supp */
+.input .action p{
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 11px;
+    padding: 3px;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 1s;
+}
+
+/* add OnHover */
+.action p:first-child:hover{
+    background-color: var(--green);
+}
+
+/* Delet display: none; au debut */
+.pas-go .action #btn-delet{ 
+    display: none;
+}
+
+/* add OnHover */
+.pas-go .action #btn-delet:hover{
+    background-color: var(--red);
 }
 
 /* Police pour tout le main */
-input, .line p, .go input, .sauvgarder{
+input, .line p{
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
 }
@@ -202,38 +238,61 @@ input, .line p, .go input, .sauvgarder{
     text-align: center;
 }
 
-/* Disposition des ligne du coté input et output */
-.line > div{
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.input-bottom{
-    margin-left: 35px;
+/* Disposition des ligne du coté input*/
+.input .line {
+    display: grid;
+    grid-template-columns: 84px 100px 0px 100px 84px 29px;
+    grid-template-rows: 42px;
 }
 
 /* Taille des elements input et non pas la classe .input */
-.input .pas-go input{
+.input input{
     width: 80px;
     height: 40px;
+    border: none;
+    text-transform: uppercase;
 }
 
 /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
-.emd-name > div, .input .line > div, .module-name div, .note-module div{
-    width: 88px;
-    height: 46px;
+.line > div, .module-name div, .note-module div{
+    width: 84px;
+    height: 42px;
 }
-.emd-name > div, .module-name div, .note-module div{
+
+/* Couleur++ des .emd-name et de l'imput de coef */
+.emd-name input, #coef input{
+    background-color: var(--dark);
+    color: var(--white);
+    text-align: center;
+}
+
+/* Couleur++ OnHover des .emd-name et de l'imput de coef */
+.emd-name input:hover, #coef input:hover,.emd-name input:focus, #coef input:focus{
+    background-color: var(--hover-dark);
+    text-align: start;
+}
+
+/* Taille de Coef */
+#coef input{
+    width: 25px;
+}
+
+/* Taille du div de Coef (+2+2px padding) */
+#coef{
+    width: 29px;
+}
+
+/* Personnalisation des noms de module */
+.output .module-name div{
     background-color: var(--dark);
     color: var(--white);
 }
 
 /* Personnalisation des notes de module */
-.note-module div{
+.output .note-module div{
     background-color: var(--white);
-    color: var(--dark);
 }
-.note-module div p{
+.note-module p{
     color: var(--dark);
 }
 
@@ -251,10 +310,7 @@ input, .line p, .go input, .sauvgarder{
 
 /* La marge entre les colonne */
 .input .line > div {
-    margin-right: 8px;
-}
-.input .line .emd-name{
-    margin-right: 0;
+    margin-right: 0px;
 }
 
 /* Supression des flèches de focus des input */
@@ -274,25 +330,8 @@ input[type=number]{
     outline-width: 0;
 }
 
-/* Personnalisation du botton reset */
-#reset{
-    color: var(--white);
-    background-color: var(--dark);
-    border: none;
-    width: 179.5px;
-    height: 50px;
-    font-size: 16px;
-}
-
-/* Mettre le botton reset au milieu avec un petite marge au top */
-.reset{
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-/* les bottons reset + go + save clickable*/
-#reset, .go input, .sauvgarder{
+/* les bottons go + save clickable*/
+.go input, .sauvgarder{
     cursor: pointer;
 }
 
@@ -304,12 +343,6 @@ input[type=number]{
     width: 82px;
     height: 46px;
     font-size: 26px;
-    margin-left: 30px;
-}
-
-/* changement de bordure au hover */
-#reset:hover{
-    background-color: var(--hover-dark);
 }
 
 /* Personalisation du button Go au hover */
@@ -320,10 +353,17 @@ input[type=number]{
 /* Aligner le go à coté des input et output aussi */
 .input form, .output{
     display: flex;
-    justify-content: space-around;
-    flex-direction: row;
+    justify-content: center;
+    flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
+}
+
+/*  Marge entre le input et output
+    (padding car sinon lord du scroll onClick
+    la barre du header cache 50px du debut de la moyenne */
+.output{
+    padding-top: 55px;
 }
 
 /* L'alignement du svg et de sauvgarder */
@@ -334,24 +374,42 @@ input[type=number]{
     align-items: center;
 }
 
-/* Réglage de la forme bizarre de la moyenne SVG*/
-.note svg{
-    width: 120px;
-    height: 190px;
+/* Réglage de la forme bizarre de la moyenne no-SVG*/
+.result > div{
+    width: 150px;
+    height: 75px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    flex-direction: column;
+
+}
+.note .top{
+    background-color: var(--dark);
+    border-radius: 1000px 1000px 0px 0px;
+}
+.note .bot{
+    background-color: var(--white);
+    border-radius: 0px 0px 1000px 1000px;
 }
 
-/* Le texte "MOYENNE GENERALE" et de la moyenne en chiffre 00.00*/
+/* Le texte "MOYENNE GENERALE"*/
 .note .moyenne{
+    color: var(--white);
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    font-size: 30px;
-    fill: white;
+    margin-top: 12px;
+    font-size: 18px;
 }
 
 /* Réglage de la moyenne en chiffre 00.00 */
 #number{
-    fill: #232323;
-    font-size: 56px;
+    color: var(--dark);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 33px;
+    margin-bottom: 12px;
 }
 
 /* Personnalisation du bouton sauvgarder */
@@ -364,20 +422,29 @@ input[type=number]{
     font-size: 13px;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
+    margin: 15px;
 }
-
 .sauvgarder:hover {
     background-color: var(--hover-dark);
 }
-
 .sauvgarder:focus {
     outline: 1px solid #707070;
 }
 
-.output{
-    margin-top: 46px;
+/* Disposition du module-result */
+.module-result{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 11px;
 }
 
+/* marge entre les colonnes du result */
+.module-result > div{
+    margin-left: 8px;
+    margin-right: 10px;
+}
 
 
 /*
@@ -386,125 +453,42 @@ input[type=number]{
  --
 */
 
-@media only screen and (max-width: 1065px) {
-    main{
-        grid-template-columns: 60% 40%;
-    }
-    .output{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    }
-    .module-result .line{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        margin-right: 8px;
-    }
-    .module-result{
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-top: 20px;
-    }
-}
-
-@media only screen and (max-width: 884px) {
-    .output{
-        position: relative;
-    }
-    
-    .module-result{
-        position: absolute;
-        top: 600px;
-        left: -500px;
-    }
-    main{
-        grid-template-columns: 70% 30%;
-    }
-}
-
-@media only screen and (max-width: 758px) {
-    main{
-        grid-template-columns: 100%;
-    }
-    .module-result{
-        position: relative;
-        top: 0px;
-        left: 0px;
-    }
-    .go input{
-        width: 150px;
-        height: 80px;
-        font-size: 40px;
-        margin-left: 0px;
-        margin-right: 40px;
-    }
-}
-
-@media only screen and (max-width: 650px) {
-    .go input{
-        margin-left: 45px;
-        margin-right: 40px;
-        margin-top: 40px;
-    }
-    .reset{
-        display: none;
-    }
-    .input form{
-        flex-direction: column;
-    }
-    .input-bottom{
-        margin-left: 5px;
-    }
-    /* Taille des elements input et non pas la classe .input */
-    .input .pas-go input{
-        width: 72px;
-    }
-
-    /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
-    .emd-name> div, .input .line > div, .module-name div, .note-module div{
-        width: 75px;
-        font-size: 13px;
-    }
-}
-
-@media only screen and (max-width: 356px) {
+@media only screen and (max-width: 425px){
     .input .line{
-        display: grid;
-        grid-template-columns: 80px;
-        grid-template-rows: 1fr 1fr 1fr;
-    }
-    .input .line > div{
-        grid-column: 1;
-    }
-    .input .line .emd-name{
-        grid-column: 1;
-    }
-    .input-title{
-        margin-left: 10px;
-    }
-    .input .input-title{
-        font-size: 20px;
-    }
-    .input form .input-bottom{
         display: flex;
-        justify-content: space-around;
         flex-wrap: wrap;
+        justify-content: center;
     }
-    .module-name div, .note-module div{
-        height: 27px;
-        width: 62px;
+    .break{
+        flex-basis: 100%;
+        display: inline-block;
+        overflow: hidden;
+        width: 0px;
+        height: 0px;
+        order: -1;
     }
-    /* Taille des elements input et non pas la classe .input */
-    .input .pas-go input{
-        width: 62.1px;
+    .input .emd-name, #coef{
+        order: -2;
+        margin-bottom: 5px;
     }
+    .pas-go{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #coef input{
+        border-left: 3px solid var(--hover-dark);
+    }
+    .input .line>div:nth-child(2), .input .line>div:nth-child(4), .input .line>div:nth-child(5){
+        border: none;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
 
-    /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
-    .emd-name div, .input .line > div, .module-name div, .note-module div{
-        width: 70px;
-        font-size: 13px;
+@media only screen and (max-width: 265px){
+    .input .line>div:nth-child(2), .input .line>div:nth-child(2) input, .input .line>div:nth-child(4), .input .line>div:nth-child(4), .input .line>div:nth-child(4) input, .input .line>div:nth-child(5),.input .line>div:nth-child(4), .input .line>div:nth-child(5) input{
+        width: 50px;
+        text-align: center;
     }
 }

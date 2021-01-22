@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style/style.css">
     <title>Calculateur</title>
 </head>
-<body>
+<body id="body">
     <header class="header">
         <p id="menu-button" class="icon-menu"><img src="src/Menu@2x.png" alt="icon du menu" onclick="openNav()"></p>
         <p><a href="" id="logo-header" class="icon-menu"><img src="src/Logo@2x.png" alt="Logo du site"></a></p>
@@ -17,7 +17,7 @@
     
     <nav id="nav">
         <ul>
-            <li class="texte-nav" id="title-nav"><a href="#"><strong>School Average Calculator</strong></a></li>
+            <li class="texte-nav" id="title-nav"><a href="#"><strong>School&nbsp;Average&nbsp;Calculator</strong></a></li>
             <li class="texte-nav" id="soutenir"><a href="#">Soutenir</a></li>
             <li class="texte-nav" id="auteur"><a href="#">Auteurs</a></li>
             <li class="texte-nav" id="github"><a href="#">GitHub</a></li>
@@ -62,135 +62,50 @@
 
     <main>
         <section class="input">
-            <form>
+            <form id="post-form" action="#section-result" onsubmit="return false" autocomplete="random-strig">
                 <div class="pas-go">
-                    <h1 class="input-title">Renseigner vos notes</h1>
-                    <div class="input-bottom">
+                    <h1 class="input-title">Renseignez vos notes</h1>
+                    <div class="input-bottom" style="display: flex; flex-direction: column; align-items: center;">
                         <div class="line">
                             <div  class="emd-name">
-                                <div>
-                                    <p id="bdd">bdd</p>
-                                </div>
-                            </div><div>
-                                <input type="number" placeholder="BDD" id="emd-bdd">
+                                <input type="text" placeholder="Set Name" autocomplete="nop" id="name-0" required>
                             </div>
                             <div>
-                                <input type="number" placeholder="TD BDD" id="td-bdd">
+                                <input type="number" step="0.01" min="-1" max="20" placeholder="EMD" id="emd-0" required>
+                            </div>
+                            <break class="break"></break>
+                            <div>
+                                <input type="number" step="0.01" min="-1" max="20" placeholder="TD" id="td-0" required>
                             </div>
                             <div>
-                                <input type="number" placeholder="TP BDD" id="tp-bdd">
+                                <input type="number" step="0.01" min="-1" max="20" placeholder="TP" id="tp-0" required>
+                            </div>
+                            <div id="coef">
+                                <input type="number" min="0" max="20" value="2" id="coef-0" required>
                             </div>
                         </div>
-
-                        <div class="line">
-                            <div  class="emd-name">
-                                <div><p id="daweb">daweb</p></div>
-                            </div><div>
-                                    <input type="number" placeholder="EMD" id="emd-daweb">
-                            </div>
-                            <div>
-                                <input type="number" placeholder="TD DAWEB" id="td-daweb">
-                            </div>
-                            <div>
-                                <input type="number" placeholder="TP DAWEB" id="tp-daweb">
-                            </div>
-                        </div>
-
-                        <div class="line">
-                            <div  class="emd-name">
-                                <div><p id="rx">rx</p></div>
-                            </div><div>
-                                    <input type="number" placeholder="RX" id="emd-rx">
-                            </div>
-                            <div>
-                                <input type="number" placeholder="TD RX" id="td-rx">
-                            </div>
-                            <div>
-                                <input type="number" placeholder="TP RX" id="tp-rx">
-                            </div>
-                        </div>
-
-                        <div class="line">
-                            <div  class="emd-name">
-                                <div><p id="se">se</p></div>
-                            </div><div>
-                                    <input type="number" placeholder="EMD" id="emd-se">
-                            </div>
-                            <div>
-                                <input type="number" placeholder="TD SE" id="td-se">
-                            </div>
-                            <div>
-                                <input type="number" placeholder="TP SE" id="tp-se">
-                            </div>
-                        </div>
-
-                        <div class="line">
-                            <div  class="emd-name">
-                                <div><p id="poo">poo</p></div>
-                            </div><div>
-                                    <input type="number" placeholder="EMD" id="emd-poo">
-                            </div>
-                            <div>
-                                <input type="number" placeholder="TD POO" id="td-poo">
-                            </div>
-                            <div>
-                                <input type="number" placeholder="TP POO" id="tp-poo">
-                            </div>
-                        </div>
-
-                        <div class="line">
-                            <div  class="emd-name">
-                                <div><p id="thl">thl</p></div>
-                            </div><div>
-                                    <input type="number" placeholder="EMD" id="emd-thl">
-                            </div>
-                            <div>
-                                <input type="number" placeholder="TD THL" id="td-thl">
-                            </div>
-                            <div>
-                                <input type="number" placeholder="TP THL" id="tp-thl">
-                            </div>
-                        </div>
-
-                        <div class="line">
-                            <div  class="emd-name">
-                                <div><p id="en">en</p></div>
-                            </div><div>
-                                    <input type="number" placeholder="EMD" id="emd-en">
-                            </div>
-                            <div>
-                                <input type="number" placeholder="TD EN" id="td-en">
-                            </div>
-                            <div>
-                                <input type="number" placeholder="TP EN" id="tp-en">
-                            </div>
-                        </div>
-                        
-                        <div class="reset">
-                            <div><input id="reset" type="reset" value="Remettre à zéro"></div>
-                        </div>
+                    </div>
+                    <div class="action">
+                        <p id="btn-add" onclick="add()">Ajouter</p>
+                        <p id="btn-delet" onclick="delet()">Supprimer</p>
                     </div>
                 </div>
                 <div class="go">
-                    <input type="button" value="GO!">
+                    <input type="submit" value="GO!" onclick="fromValidation()">
                 </div>
             </form>
         </section>
 
-        <section class="output">
+        <section id="section-result" class="output">
             <div class="note">
-                <svg xmlns="http://www.w3.org/2000/svg" width="239" height="341.667" viewBox="0 0 239 341.667">
-                    <g class="g-svg" data-name="Groupe 94" transform="translate(-911 -121)">
-                      <path data-name="Tracé 239" d="M119.5,0A119.5,119.5,0,0,1,239,119.5H0A119.5,119.5,0,0,1,119.5,0Z" transform="translate(911 121)" fill="#232323"/>
-                      <path data-name="Tracé 240" d="M239,119.5a119.5,119.5,0,0,1-239,0Z" transform="translate(911 121)" fill="#fff"/>
-                    </g>
-                    <g class="text">
-                        <text class="moyenne" x="46" y="65" >MOYENNE</text>
-                        <text class="moyenne" x="44" y="100" >GENerale</text>
-                        <text id="number" class="moyenne" x="50" y="190" >00.00</text>
-                    </g>
-                </svg>
-
+                <div class="result">
+                    <div class="top">
+                        <div><p class="moyenne">moyenne<br>générale</p></div>
+                    </div>
+                    <div class="bot">
+                        <div><p id="number" >00.00</p></div>
+                    </div>
+                </div>
                 <div class="sauvgarder-div">
                     <button class="sauvgarder" onclick="sauvgarder()">
                         Sauvgarder
@@ -206,7 +121,8 @@
                         <div><p>0.02</p></div>
                     </div>
                 </div>
-
+                
+<!-- supprimer -->
                 <div class="line">
                     <div class="module-name">
                         <div><p>daweb</p></div>
@@ -254,6 +170,9 @@
                         <div><p>0.02</p></div>
                     </div>
                 </div>
+
+<!-- supprimer -->
+
             </div>
         </section>
     </main>
