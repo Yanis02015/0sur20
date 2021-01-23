@@ -454,7 +454,7 @@ input[type=number]{
 */
 @media only screen and (max-width: 420px){
     .input .line{
-        grid-template-columns: 66px 80px 0px 80px 65px 2spx;
+        grid-template-columns: 66px 80px 0px 80px 65px 25px;
     }
     /* Taille des elements input et non pas la classe .input */
     .input .line input{
@@ -474,7 +474,7 @@ input[type=number]{
 
     /* Taille du div de Coef (+2+2px padding) */
     #coef{
-        width: 2spx;
+        width: 25px;
     }
 }
 
