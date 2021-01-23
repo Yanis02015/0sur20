@@ -241,7 +241,7 @@ input, .line p{
 /* Disposition des ligne du coté input*/
 .input .line {
     display: grid;
-    grid-template-columns: 84px 100px 0px 100px 84px 29px;
+    grid-template-columns: 82px 100px 0px 100px 82px 29px;
     grid-template-rows: 42px;
 }
 
@@ -255,7 +255,7 @@ input, .line p{
 
 /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
 .line > div, .module-name div, .note-module div{
-    width: 84px;
+    width: 82px;
     height: 42px;
 }
 
@@ -279,7 +279,7 @@ input, .line p{
 
 /* Taille du div de Coef (+2+2px padding) */
 #coef{
-    width: 29px;
+    width: 27px;
 }
 
 /* Personnalisation des noms de module */
@@ -442,8 +442,8 @@ input[type=number]{
 
 /* marge entre les colonnes du result */
 .module-result > div{
-    margin-left: 8px;
-    margin-right: 10px;
+    margin-left: 9px;
+    margin-right: 9px;
 }
 
 
@@ -452,8 +452,34 @@ input[type=number]{
  ---- Le Responsive :
  --
 */
+@media only screen and (max-width: 420px){
+    .input .line{
+        grid-template-columns: 66px 80px 0px 80px 65px 29px;
+    }
+    /* Taille des elements input et non pas la classe .input */
+    .input .line input{
+        width: 67px;
+        font-size: 11px;
+        font-weight: 400;
+    }
 
-@media only screen and (max-width: 425px){
+    /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
+    .line > div{
+        width: 65px;
+    }
+    /* Taille de Coef */
+    #coef input{
+        width: 25px;
+    }
+
+    /* Taille du div de Coef (+2+2px padding) */
+    #coef{
+        width: 27px;
+    }
+}
+
+
+@media only screen and (max-width: 335px){
     .input .line{
         display: flex;
         flex-wrap: wrap;
@@ -484,11 +510,28 @@ input[type=number]{
         margin-right: auto;
         margin-left: auto;
     }
+    .input .input-title{
+        margin-left: 25px;
+        margin-right: 25px;
+    }
 }
 
 @media only screen and (max-width: 265px){
     .input .line>div:nth-child(2), .input .line>div:nth-child(2) input, .input .line>div:nth-child(4), .input .line>div:nth-child(4), .input .line>div:nth-child(4) input, .input .line>div:nth-child(5),.input .line>div:nth-child(4), .input .line>div:nth-child(5) input{
         width: 50px;
         text-align: center;
+    }
+    .note .top, .note .bot{
+        width: 130px;
+        height: 65px;
+    }
+    /* Le texte "MOYENNE GENERALE"*/
+    .note .moyenne{
+        font-size: 15px;
+    }
+
+    /* Réglage de la moyenne en chiffre 00.00 */
+    #number{
+        font-size: 29px;
     }
 }
