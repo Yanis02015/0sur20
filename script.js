@@ -19,25 +19,26 @@ function fromValidation(){
     var fromValidity = document.forms["post-form"].checkValidity();
     if(fromValidity){
         calculate();
-    }else{ //Juste une alerte après chaque 10 essais foireux
+    }else{ //Juste une alerte après chaque 9 essaies foireux
         iFromValidity++;
         if(iFromValidity%9 === 0){
             alert("Merci de bien vouloir remplir tous les champs");
         }
     }
-    
 }
 
 // Calculer la moyenne
-var i = 0;
+var iLine = 0;
+var arrayMoyenne = [];
 function calculate() {
     var moy = 0;
     var totalCoef = 0;
-    for(var j=0; j <= i;j++){
-        var emd = document.getElementById("emd-"+j).value;
-        var td = document.getElementById("td-"+j).value;
-        var tp = document.getElementById("tp-"+j).value;
-        var coef = document.getElementById("coef-"+j).value;
+    arrayMoyenne = [];
+    for(var j=0; j <= iLine;j++){
+        let emd = document.getElementById("emd-"+j).value;
+        let td = document.getElementById("td-"+j).value;
+        let tp = document.getElementById("tp-"+j).value;
+        let coef = document.getElementById("coef-"+j).value;
         emd = parseFloat(emd);
         td = parseFloat(td);
         tp = parseFloat(tp);
@@ -45,6 +46,8 @@ function calculate() {
         totalCoef += coef;
         moy += choice(emd,td,tp)*coef;
         console.log(choice(emd,td,tp)*coef);
+        
+        arrayMoyenne.push(choice(emd,td,tp));
     }
     moy /= totalCoef;
     moy += 0.004;
@@ -52,8 +55,12 @@ function calculate() {
     moy = moy.toString().padStart(5, '0');
     var Average = document.getElementById("number");
     Average.textContent = moy;
+    addOutputModule();
+    fillModuleOutput();
 }
+
 function choice(a,z,e) {
+    let moy1, moy2;
     if(z!==-1 && e !==-1){
         moy1 = a*0.6 + (z/2 + e/2)*0.4;
         moy2 = a*2 + z + e;
@@ -79,7 +86,7 @@ function choice(a,z,e) {
 
 // L'ajout de ligne d'input
 function add() {
-    i=i+1;
+    iLine++;
     var container = document.getElementsByClassName("input-bottom");
     var line = document.createElement("div");
     line.className = "line";
@@ -97,14 +104,14 @@ function add() {
     divCoef.setAttribute("id","coef");
 
     var inputName = document.createElement("input");
-    inputName.setAttribute('id',"name-"+i);
+    inputName.setAttribute('id',"name-"+iLine);
     inputName.setAttribute('required',"required");
     inputName.type = "text";
     inputName.placeholder = "Set Name";
     inputName.removeAttribute('autocomplete');
 
     var inputEmd = document.createElement("input");
-    inputEmd.setAttribute('id',"emd-"+i);
+    inputEmd.setAttribute('id',"emd-"+iLine);
     inputEmd.setAttribute('required',"required");
     inputEmd.setAttribute('step',"0.01");
     inputEmd.max="20";
@@ -113,7 +120,7 @@ function add() {
     inputEmd.placeholder = "EMD";
 
     var inputTd = document.createElement("input");
-    inputTd.setAttribute('id',"td-"+i);
+    inputTd.setAttribute('id',"td-"+iLine);
     inputTd.setAttribute('required',"required");
     inputTd.setAttribute('step',"0.01");
     inputTd.max="20";
@@ -122,7 +129,7 @@ function add() {
     inputTd.placeholder = "TD";
 
     var inputTp = document.createElement("input");
-    inputTp.setAttribute('id',"tp-"+i);
+    inputTp.setAttribute('id',"tp-"+iLine);
     inputTp.setAttribute('required',"required");
     inputTp.setAttribute('step',"0.01");
     inputTp.max="20";
@@ -131,7 +138,7 @@ function add() {
     inputTp.placeholder = "TP";
 
     var inputCoef = document.createElement("input");
-    inputCoef.setAttribute('id',"coef-"+i);
+    inputCoef.setAttribute('id',"coef-"+iLine);
     inputCoef.setAttribute('required',"required");
     inputCoef.max="20";
     inputCoef.min="1";
@@ -152,23 +159,88 @@ function add() {
     line.appendChild(divCoef);
     
     container[0].appendChild(line);
-    check();
+    checkDelet();
+}
+
+function addOutputModule(){
+    var container = document.getElementsByClassName("module-result");
+    container[0].innerHTML="";
+    for(var j=0; j<=iLine; j++){
+
+        var line = document.createElement("div");
+        line.className = "line";
+
+        var moduleName = document.createElement("div");
+        moduleName.className = "module-name";
+
+        var divEmpty1 = document.createElement("div");
+        var divEmpty2 = document.createElement("div");
+
+        var noteModule = document.createElement("div");
+        noteModule.className = "note-module";
+
+        var pModuleName = document.createElement("p");
+        pModuleName.setAttribute("id","module-"+j);
+
+        var pModuleNote = document.createElement("p");
+        pModuleNote.setAttribute("id","note-"+j);
+
+        divEmpty1.appendChild(pModuleName);
+        divEmpty2.appendChild(pModuleNote);
+        moduleName.appendChild(divEmpty1);
+        noteModule.appendChild(divEmpty2);
+        line.appendChild(moduleName);
+        line.appendChild(noteModule);
+
+        container[0].appendChild(line);
+    }
+}
+
+function fillModuleOutput() {
+    for(var j=0; j<=iLine;j++){
+        let nameModule = document.getElementById("name-"+j).value; //input
+        nameModule = checkName(nameModule);
+        let pModuleName = document.getElementById("module-"+j); //input
+        let pModuleNote = document.getElementById("note-"+j); //input
+        pModuleName.innerText = nameModule;
+        pModuleNote.innerText = arrayMoyenne[j];
+    }
+}
+
+function checkName(string) {
+    var checkSpace = string.includes(" ");
+    if(checkSpace) {
+        var splitString = string.split(" ");
+        string ="";
+        for(var j=0;j<splitString.length;j++){
+            string+=splitString[j].charAt(0);
+        }
+    }
+    if(string.length > 6){
+        var stringLong= "";
+        for(var i = 0; i<6; i++) {
+            stringLong += string.charAt(i);
+        }
+        string = stringLong;
+    }
+    return string;
 }
 
 // Supprimer la derniere ligne ajouter
 function delet() {
-    if(i>0){
+    if(iLine>0){
         var line = document.getElementsByClassName("line");
         var container = document.getElementsByClassName("input-bottom");
-        container[0].removeChild(line[i]);
-        i -= 1;
+        container[0].removeChild(line[iLine]);
+        iLine--;
     }
-    check();
+    checkDelet();
 }
 
-function check() {
+// Activer ou désactiver le button supprimer
+function checkDelet() {
     var delet = document.getElementById("btn-delet");
-    if(i<=0){
+    if(iLine<=0){
         delet.style.cursor = "not-allowed";
     } else{
         delet.style.display = "inline";

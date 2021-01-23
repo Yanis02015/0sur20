@@ -207,7 +207,7 @@ main{
     padding: 3px;
     text-decoration: underline;
     cursor: pointer;
-    transition: 1s;
+    /*transition: 1s;*/
 }
 
 /* add OnHover */
