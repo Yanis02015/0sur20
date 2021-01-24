@@ -1,0 +1,402 @@
+:root{
+    --dark : #160e41; /* #232323 */
+    --dark-purple : #160e41;
+    --light : #3A3A3A; /* #3A3A3A */
+    --light-purple : rgb(41, 30, 99);
+    --green : #177704; /* #177704 */
+    --white : white;
+    --red : #B80C0C; /*  #B80C0C */
+    --hover-dark : #080324; /* #1a1919 */
+    --hover-red : #a00909; /* #a00909 */
+}
+
+/*
+ --
+ ---- Paramètres générales :
+ --
+*/
+
+body{
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    overflow-x: hidden;
+    background-image: url("../src/background.jpg");
+    background-repeat: repeat-y;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+a, p{
+    text-decoration: none;
+    color: var(--white);
+    margin: 0px;
+    
+}
+
+.line > div, .go input, .reset input, .sauvgarder, .note .result > div{
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.45);
+}
+
+
+/*
+ --
+ ---- Main page :
+ --
+*/
+
+main{
+    margin-top: 50px;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+}
+
+/* Retouche div(add / supp) */
+.pas-go .action{
+    position: relative;
+    top: -18px;
+    margin-left: 2px;
+    margin-top: 5px;
+}
+
+/* Dispositon++ des add & supp */
+.input .action p{
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 11px;
+    padding: 3px;
+    text-decoration: underline;
+    cursor: pointer;
+    /*transition: 1s;*/
+}
+
+/* add OnHover */
+.action p:first-child:hover{
+    background-color: var(--green);
+}
+
+/* Delet display: none; au debut */
+.pas-go .action #btn-delet{ 
+    display: none;
+}
+
+/* add OnHover */
+.pas-go .action #btn-delet:hover{
+    background-color: var(--red);
+}
+
+/* Police pour tout le main */
+input, .line p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+/* Police et taille du titre de la page */
+.input-title{
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* Disposition des ligne du coté input*/
+.input .line {
+    display: grid;
+    grid-template-columns: 82px 100px 0px 100px 82px 25px;
+    grid-template-rows: 42px;
+}
+
+/* Taille des elements input et non pas la classe .input */
+.input input{
+    width: 80px;
+    height: 40px;
+    border: none;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
+.line > div, .module-name div, .note-module div{
+    width: 82px;
+    height: 42px;
+}
+
+/* Couleur++ des .emd-name et de l'imput de coef */
+.emd-name input, #coef input{
+    background-color: var(--dark);
+    color: var(--white);
+    text-align: center;
+}
+
+/* Couleur++ OnHover des .emd-name et de l'imput de coef */
+.emd-name input:hover, #coef input:hover,.emd-name input:focus, #coef input:focus{
+    background-color: var(--hover-dark);
+    text-align: start;
+}
+
+/* Taille de Coef */
+#coef input{
+    width: 25px;
+}
+
+/* Taille du div de Coef (+2+2px padding) */
+#coef{
+    width: 25px;
+}
+
+/* Personnalisation des noms de module */
+.output .module-name div{
+    background-color: var(--dark);
+    color: var(--white);
+}
+
+/* Personnalisation des notes de module */
+.output .note-module div{
+    background-color: var(--white);
+}
+.note-module p{
+    color: var(--dark);
+}
+
+/* Aligner au centre les emd-name / module-name / .note-module */
+.emd-name div, .module-name div, .note-module div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* La marge entre les "line" */
+.line{
+    margin-bottom: 18px;
+}
+
+/* La marge entre les colonne */
+.input .line > div {
+    margin-right: 0px;
+}
+
+/* Supression des flèches de focus des input */
+/* Pour Chrome, Safari, Edge et Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Pour Firefox */
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
+/* supression des border des input lord du focus */
+.input input:focus{
+    outline-width: 0;
+}
+
+/* les bottons go + save clickable*/
+.go input, .sauvgarder{
+    cursor: pointer;
+}
+
+/* Personalisation du button Go */
+.go input{
+    color: var(--white);
+    background-color: var(--red);
+    border: none;
+    width: 82px;
+    height: 46px;
+    font-size: 26px;
+}
+
+/* Personalisation du button Go au hover */
+.go input:hover{
+    background-color: var(--hover-red);
+}
+
+/* Aligner le go à coté des input et output aussi */
+.input form, .output{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/*  Marge entre le input et output
+    (padding car sinon lord du scroll onClick
+    la barre du header cache 50px du debut de la moyenne */
+.output{
+    padding-top: 55px;
+}
+
+/* L'alignement du svg et de sauvgarder */
+.note{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Réglage de la forme bizarre de la moyenne no-SVG*/
+.result > div{
+    width: 150px;
+    height: 75px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    flex-direction: column;
+
+}
+.note .top{
+    background-color: var(--dark);
+    border-radius: 1000px 1000px 0px 0px;
+}
+.note .bot{
+    background-color: var(--white);
+    border-radius: 0px 0px 1000px 1000px;
+}
+
+/* Le texte "MOYENNE GENERALE"*/
+.note .moyenne{
+    color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+/* Réglage de la moyenne en chiffre 00.00 */
+#number{
+    color: var(--dark);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 33px;
+    margin-bottom: 12px;
+}
+
+/* Personnalisation du bouton sauvgarder */
+.sauvgarder{
+    color: var(--white);
+    background-color: var(--dark);
+    border: none;
+    width: 160px;
+    height: 30px;
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin: 15px;
+}
+.sauvgarder:hover {
+    background-color: var(--hover-dark);
+}
+.sauvgarder:focus {
+    outline: 1px solid #707070;
+}
+
+/* Disposition du module-result */
+.module-result{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 11px;
+}
+
+/* marge entre les colonnes du result */
+.module-result > div{
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+
+/*
+ --
+ ---- Le Responsive :
+ --
+*/
+@media only screen and (max-width: 420px){
+    .input .line{
+        grid-template-columns: 66px 80px 0px 80px 65px 25px;
+    }
+    /* Taille des elements input et non pas la classe .input */
+    .input .line input{
+        width: 67px;
+        font-size: 11px;
+    }
+
+    /* La couleur et la taille et son background pour les emd-name / module-name / .note-module */
+    .input .line > div{
+        width: 65px;
+    }
+    /* Taille de Coef */
+    #coef input{
+        width: 25px;
+    }
+
+    /* Taille du div de Coef (+2+2px padding) */
+    #coef{
+        width: 25px;
+    }
+}
+
+
+@media only screen and (max-width: 335px){
+    .input .line{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .break{
+        flex-basis: 100%;
+        display: inline-block;
+        overflow: hidden;
+        width: 0px;
+        height: 0px;
+        order: -1;
+    }
+    .input .emd-name, #coef{
+        order: -2;
+        margin-bottom: 5px;
+    }
+    .pas-go{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #coef input{
+        border-left: 3px solid var(--hover-dark);
+    }
+    .input .line>div:nth-child(2), .input .line>div:nth-child(4), .input .line>div:nth-child(5){
+        border: none;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .input .input-title{
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+}
+
+@media only screen and (max-width: 265px){
+    .input .line>div:nth-child(2), .input .line>div:nth-child(2) input, .input .line>div:nth-child(4), .input .line>div:nth-child(4), .input .line>div:nth-child(4) input, .input .line>div:nth-child(5),.input .line>div:nth-child(4), .input .line>div:nth-child(5) input{
+        width: 50px;
+        text-align: center;
+    }
+    .note .top, .note .bot{
+        width: 130px;
+        height: 65px;
+    }
+    /* Le texte "MOYENNE GENERALE"*/
+    .note .moyenne{
+        font-size: 15px;
+    }
+
+    /* Réglage de la moyenne en chiffre 00.00 */
+    #number{
+        font-size: 29px;
+    }
+}

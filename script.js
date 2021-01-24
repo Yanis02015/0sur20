@@ -51,16 +51,17 @@ function calculate() {
     }
     moy /= totalCoef;
     moy += 0.004;
-    moy = moy.toFixed(2);
+    moy = moy.toFixed(2); //deux chiffre après la virgule
     moy = moy.toString().padStart(5, '0');
     var Average = document.getElementById("number");
     Average.textContent = moy;
+    window.location.replace("#section-result"); // Simple scroll to #section-result
     addOutputModule();
     fillModuleOutput();
 }
 
 function choice(a,z,e) {
-    let moy1, moy2;
+    let moy1, moy2, moyenne;
     if(z!==-1 && e !==-1){
         moy1 = a*0.6 + (z/2 + e/2)*0.4;
         moy2 = a*2 + z + e;
@@ -78,10 +79,11 @@ function choice(a,z,e) {
                 moy2 = a;
             }
     if(moy1>=moy2){
-        return moy1;
+        moyenne = moy1;
     }else{
-        return moy2;
+        moyenne = moy2;
     }
+    return (moyenne+0.004).toFixed(2);
 }
 
 // L'ajout de ligne d'input
@@ -246,4 +248,10 @@ function checkDelet() {
         delet.style.display = "inline";
         delet.style.cursor = "pointer";
     }
+}
+
+
+// Désolé cette option est en cours de dévloppement :
+function notAvailable() {
+    alert("Navré cette section est en cours de dévloppement !");
 }
